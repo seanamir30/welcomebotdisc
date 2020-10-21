@@ -20,7 +20,7 @@ tite.on('message', message =>{
 		check = 1;
 		message.channel.send('welcum 2 jabi!');
 		if(message.member.voice.channel){
-			var connection = message.member.voice.channel.join();
+			var connection = message.member.voice.channel.join(__dirname,"jabi.mp3");
 		} 
 		else {
 			message.channel.send('ang tanga mo!')
