@@ -39,4 +39,4 @@ tite.on('message', message =>{
 	}
 });
 
-tite.login('NzY1ODkwMTY1ODAwODI4OTM4.X4bYzQ.FX2-qM06_8hqrDN7D5To4fVjTWI')
+tite.login(process.env.token)
