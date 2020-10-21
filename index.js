@@ -2,7 +2,9 @@ const Discord = require('discord.js');
 
 const tite = new Discord.Client();
 
-const prefix = '-'
+const prefix = '-';
+
+var ffmpeg = require('ffmpeg');
 
 var check = 0
 
