@@ -9,7 +9,6 @@
   "author": "amir",
   "license": "ISC",
   "dependencies": {
-    "@discordjs/opus": "github:discordjs/opus",
     "discord.js": "^12.3.1"
   }
 }

@@ -21,7 +21,6 @@ tite.on('message', message =>{
 		message.channel.send('welcum 2 jabi!');
 		if(message.member.voice.channel){
 			var connection = message.member.voice.channel.join();
-			const dispatcher = connection.play('./jabi.mp3')
 		} 
 		else {
 			message.channel.send('ang tanga mo!')
@@ -40,4 +39,4 @@ tite.on('message', message =>{
 	}
 });
 
-tite.login(process.env.token)
+tite.login('NzY1ODkwMTY1ODAwODI4OTM4.X4bYzQ.FX2-qM06_8hqrDN7D5To4fVjTWI')
