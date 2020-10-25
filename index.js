@@ -29,6 +29,7 @@ tite.on('message', message =>{
 			message.member.voice.channel.join()
 			.then(connection => {
 				const stream = ytdl('https://www.youtube.com/watch?v=561xYvjMbNk', {filter:'audioonly'});
+				const dispatcher = connection.play(stream,streamOptions);
 			});
 			} 
 		else {
