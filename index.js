@@ -11,6 +11,7 @@ const streamOptions = {
 };
 
 var check = 0;
+var url = 'https://www.youtube.com/watch?v=561xYvjMbNk';
 
 tite.once('ready', () =>{
 	console.log('henlo');
@@ -28,7 +29,7 @@ tite.on('message', message =>{
 		if(message.member.voice.channel){
 			message.member.voice.channel.join()
 			.then(connection => {
-				const stream = ytdl('https://www.youtube.com/watch?v=561xYvjMbNk', {filter:'audioonly'});
+				const stream = ytdl(url, {filter:'audioonly'});
 				const dispatcher = connection.play(stream,streamOptions);
 			});
 			} 
