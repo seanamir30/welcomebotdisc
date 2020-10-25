@@ -22,20 +22,10 @@ tite.on('message', message =>{
 		check = 1;
 		message.channel.send('welcum 2 jabi!');
 		if(message.member.voice.channel){
-			var connection = message.member.voice.channel.join();
-			// Create a dispatcher
-			const dispatcher = connection.play('audio.mp3');
-
-			dispatcher.on('start', () => {
-				console.log('audio.mp3 is now playing!');
+			message.member.voice.channel.join()
+			.then(connection => {
+				const dispatcher = connection.play(require("path").join(__dirname, './jabi.mp3'));
 			});
-
-			dispatcher.on('finish', () => {
-				console.log('audio.mp3 has finished playing!');
-			});
-
-			// Always remember to handle errors appropriately!
-			dispatcher.on('error', console.error);
 			} 
 		else {
 			message.channel.send('ang tanga mo!');
