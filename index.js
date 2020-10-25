@@ -4,8 +4,6 @@ const tite = new Discord.Client();
 
 const prefix = '-';
 
-var ffmpeg = require('ffmpeg');
-
 const ytdl  = require('ytdl-core');
 const streamOptions = {
 	seek:0,
