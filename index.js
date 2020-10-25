@@ -29,8 +29,9 @@ tite.on('message', message =>{
 		if(message.member.voice.channel){
 			message.member.voice.channel.join()
 			.then(connection => {
-				const stream = ytdl(url, {filter:'audioonly'});
-				const dispatcher = connection.play(stream,streamOptions);
+				//const stream = ytdl(url, {filter:'audioonly'});
+				//const dispatcher = connection.play(stream,streamOptions);
+				const dispatcher = connection.playFile(require("path").join(__dirname, './jabi.mp3'));
 			});
 			} 
 		else {
