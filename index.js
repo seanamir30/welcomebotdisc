@@ -6,7 +6,13 @@ const prefix = '-';
 
 var ffmpeg = require('ffmpeg');
 
-var check = 0
+const ytdl  = require('ytdl-core');
+const streamOptions = {
+	seek:0,
+	volume:1
+};
+
+var check = 0;
 
 tite.once('ready', () =>{
 	console.log('henlo');
@@ -24,7 +30,7 @@ tite.on('message', message =>{
 		if(message.member.voice.channel){
 			message.member.voice.channel.join()
 			.then(connection => {
-				const dispatcher = connection.play(require("path").join(__dirname, './jabi.mp3'));
+				const stream = ytdl('https://www.youtube.com/watch?v=561xYvjMbNk', {filter:'audioonly'});
 			});
 			} 
 		else {
