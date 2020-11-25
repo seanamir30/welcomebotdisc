@@ -60,9 +60,11 @@ client.on('message', message =>{
 
             if(oldUserChannel === undefined && newUserChannel !== undefined) {
             	const dispatcher = connection.play(require("path").join(__dirname, './hurr.mp3'));
+            	message.channel.send('hi');
   			} 
-  			else if(newUserChannel === undefined){
+  			else  if(newUserChannel === undefined){
   				const dispatcher = connection.play(require("path").join(__dirname, './huh.mp3'));
+  				message.channel.send('bye');
   			} 
   			/*else {
             	if(randomnumber == 1){
