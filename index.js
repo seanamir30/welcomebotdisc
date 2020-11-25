@@ -53,20 +53,13 @@ client.on('message', message =>{
                 const dispatcher = connection.play(require("path").join(__dirname, './huh.mp3'));
             }
             });	
-        client.on('voiceStateUpdate', (oldMember, newMember) => {
-            const newUserChannel = newMember.voicechannelID;
-            const oldUserChannel = oldMember.voicechannelID;
-            randomnumber=Math.floor(Math.random() * 3) + 1;
-            if(randomnumber == 1){
-           		const dispatcher = connection.play(require("path").join(__dirname, './hurr.mp3'));
-        	}
-        	else if(randomnumber == 2){
-        		const dispatcher = connection.play(require("path").join(__dirname, './hehe.mp3'));
-        	}
-        	else if (randomnumber == 3){
+        client.on("voiceStateUpdate", (oldVoiceState, newVoiceState) => { // Listeing to the voiceStateUpdate event
+    		if (newVoiceState.channel) { // The member connected to a channel.
+        		const dispatcher = connection.play(require("path").join(__dirname, './hurr.mp3'));
+    		} else if (oldVoiceState.channel) { // The member disconnected from a channel.
         		const dispatcher = connection.play(require("path").join(__dirname, './huh.mp3'));
-        	}
-            });
+    		};
+		});
         }).catch(err => console.log(err));
     }   
     else if (command === "bye") {
