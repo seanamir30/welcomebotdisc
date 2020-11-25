@@ -1,54 +1,70 @@
 const Discord = require('discord.js');
 
-const tite = new Discord.Client();
 
-const prefix = '-';
+const client = new Discord.Client();
 
-const ytdl  = require('ytdl-core');
-const streamOptions = {
-	seek:0,
-	volume:1
-};
+const prefix = '!';
 
-var check = 0;
-var url = 'https://www.youtube.com/watch?v=561xYvjMbNk';
-
-tite.once('ready', () =>{
-	console.log('henlo');
+client.once('ready', () => {
+    console.log('Villager is online!');
 });
 
-tite.on('message', message =>{
-	if(!message.content.startsWith(prefix) || message.author.bot) return;
+ytdl_opts = {
+    'format': 'bestaudio/best',
+    'postprocessors': [{
+        'key': 'FFmpegExtractAudio',
+        'preferredcodec': 'mp3',
+        'preferredquality': '192',
+    }],
+}   
 
-	const args = message.content.slice(prefix.length).split(/ +/);
-	const command = args.shift().toLowerCase();
+function sleep(milliseconds) {
+    const date = Date.now();
+    let currentDate = null;
+    do {
+      currentDate = Date.now();
+    } while (currentDate - date < milliseconds);
+  }
 
-	if (command === 'tara'){
-		check = 1;
-		message.channel.send('welcum 2 jabi!');
-		if(message.member.voice.channel){
-			message.member.voice.channel.join()
-			.then(connection => {
-				//const stream = ytdl(url, {filter:'audioonly'});
-				//const dispatcher = connection.play(stream,streamOptions);
-				const dispatcher = connection.playFile(require("path").join(__dirname, './jabi.mp3'));
-			});
-			} 
-		else {
-			message.channel.send('ang tanga mo!');
-		}
-	}
+client.on('message', message =>{
+    if(!message.content.startsWith(prefix) || message.author.bot) return;
 
-	if (command === 'layas'){
-		if (check === 1){
-			connection = message.member.voice.channel.leave();
-			message.channel.send('paalam :<');
-			check = 0;
-		} 
-		else {
-			message.channel.send('saan?');
-		}
-	}
+    const args = message.content.slice(prefix.length).split(/ +/);
+    const command = args.shift().toLowerCase();
+    if (command === "tite") {
+        message.channel.send('ako si henry');
+        var voiceChannel = message.member.voice.channel;
+        voiceChannel.join()
+        .then(connection =>{
+        	commandcheck = 0;
+        	eto = 1;
+            client.on('message', message =>{
+            if(!message.content.startsWith(prefix) || message.author.bot) return;
+        
+            const args = message.content.slice(prefix.length).split(/ +/);
+            const command = args.shift().toLowerCase();
+            if(command === 'hello'){
+                const dispatcher = connection.play(require("path").join(__dirname, './hehe.mp3'));
+            }
+            else if(command === 'hi'){
+                const dispatcher = connection.play(require("path").join(__dirname, './hehe.mp3'));
+            }
+            else if(command === 'gago'){
+                const dispatcher = connection.play(require("path").join(__dirname, './huh.mp3'));
+            }
+            });	
+        client.on('voiceStateUpdate', (oldMember, newMember) => {
+            const newUserChannel = newMember.voicechannelID;
+            const oldUserChannel = oldMember.voicechannelID;	
+            const dispatcher = connection.play(require("path").join(__dirname, './hurr.mp3'));
+            });
+        }).catch(err => console.log(err));
+    }   
+    else if (command === "bye") {
+        var voiceChannel = message.member.voice.channel;
+
+        voiceChannel.leave();
+            }      
 });
 
-tite.login(process.env.token)
+client.login(process.env.token);

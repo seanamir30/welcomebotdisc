@@ -1,17 +1,15 @@
 {
-  "name": "welcum2jabi",
+  "name": "villager",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "amir",
+  "author": "Russel A. Manito",
   "license": "ISC",
   "dependencies": {
-    "@discordjs/opus": "^0.3.2",
     "discord.js": "^12.3.1",
-    "ffmpeg": "0.0.4",
-    "ytdl-core": "^3.4.2"
+    "opusscript": "0.0.7"
   }
 }
