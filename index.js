@@ -56,7 +56,7 @@ client.on('message', message =>{
         client.on('voiceStateUpdate', (oldMember, newMember) => {
             const newUserChannel = newMember.voicechannelID;
             const oldUserChannel = oldMember.voicechannelID;
-            randomnumber=Math.floor(Math.random() * 3) + 1;	
+            randomnumber=Math.floor(Math.random() * 3) + 1;
             if(randomnumber == 1){
            		const dispatcher = connection.play(require("path").join(__dirname, './hurr.mp3'));
         	}
