@@ -53,13 +53,19 @@ client.on('message', message =>{
                 const dispatcher = connection.play(require("path").join(__dirname, './huh.mp3'));
             }
             });	
-        client.on("voiceStateUpdate", (oldVoiceState, newVoiceState) => { // Listeing to the voiceStateUpdate event
-    		if (newVoiceState.channel) { // The member connected to a channel.
-        		const dispatcher = connection.play(require("path").join(__dirname, './hurr.mp3'));
-    		} else if (oldVoiceState.channel) { // The member disconnected from a channel.
-        		const dispatcher = connection.play(require("path").join(__dirname, './huh.mp3'));
-    		};
-		});
+        client.on("voiceStateUpdate", (oldMember, newMember)=> { 
+  let oldVoice = oldMember.voiceChannelID; 
+  let newVoice = newMember.voiceChannelID; 
+  if (oldVoice != newVoice) {
+    if (oldVoice == null) {
+      console.log("User joined!");
+    } else if (newVoice == null) {
+      console.log("User left!");
+    } else {
+      console.log("User switched channels!");
+    }
+  }
+});
         }).catch(err => console.log(err));
     }   
     else if (command === "bye") {
