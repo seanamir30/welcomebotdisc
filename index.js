@@ -57,13 +57,14 @@ client.on('message', message =>{
             const newUserChannel = newMember.voicechannelID;
             const oldUserChannel = oldMember.voicechannelID;
             randomnumber=Math.floor(Math.random() * 3) + 1;
-
-            if (oldUserChannel == null) {
-    			console.log("User joined!");
-    		} else if (newUserChannel == null) {
-      			console.log("User left!");
-    		} else {
-      			console.log("User switched channels!");
+            if (oldUserChannel != newUserChannel) {
+            	if (oldUserChannel == null) {
+    				console.log("User joined!");
+    			} else if (newUserChannel == null) {
+      				console.log("User left!");
+    			} else {
+      				console.log("User switched channels!");
+    			}
     		}
   			/*else {
             	if(randomnumber == 1){
