@@ -65,7 +65,6 @@ client.on('message', message =>{
     		} else {
       			console.log("User switched channels!");
     		}
-  			}
   			/*else {
             	if(randomnumber == 1){
            		const dispatcher = connection.play(require("path").join(__dirname, './hurr.mp3'));
