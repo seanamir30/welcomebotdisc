@@ -53,10 +53,12 @@ client.on('message', message =>{
                 const dispatcher = connection.play(require("path").join(__dirname, './huh.mp3'));
             }
             });	
-        client.on("voiceStateUpdate", (oldVoiceState, newVoiceState) => { // Listeing to the voiceStateUpdate event
-    		if (newVoiceState.channel) { // The member connected to a channel.
+        client.on("voiceStateUpdate", (oldVoiceState, newVoiceState, oldMember, newMember) => {
+        	const newUserChannel = newMember.voice.channelID
+  			const oldUserChannel = oldMember.voice.channelID
+    		if (newVoiceState.channel && newUserChannel ==='627123274081501185') {
         		const dispatcher = connection.play(require("path").join(__dirname, './hurr.mp3'));
-    		} else if (oldVoiceState.channel) { // The member disconnected from a channel.
+    		} else if (oldVoiceState.channel) {
         		const dispatcher = connection.play(require("path").join(__dirname, './huh.mp3'));
     		};
 		});
