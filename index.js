@@ -31,7 +31,7 @@ client.on('message', message =>{
 
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
-    if (command === "tite") {
+    if (command === "henry") {
         message.channel.send('ako si henry');
         var voiceChannel = message.member.voice.channel;
         voiceChannel.join()
