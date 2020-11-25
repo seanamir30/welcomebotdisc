@@ -57,15 +57,24 @@ client.on('message', message =>{
             const newUserChannel = newMember.voicechannelID;
             const oldUserChannel = oldMember.voicechannelID;
             randomnumber=Math.floor(Math.random() * 3) + 1;
-            if(randomnumber == 1){
+
+            if(oldUserChannel === undefined && newUserChannel !== undefined) {
+            	const dispatcher = connection.play(require("path").join(__dirname, './hurr.mp3'));
+  			} 
+  			else if(newUserChannel === undefined){
+  				const dispatcher = connection.play(require("path").join(__dirname, './huh.mp3'));
+  			} 
+  			/*else {
+            	if(randomnumber == 1){
            		const dispatcher = connection.play(require("path").join(__dirname, './hurr.mp3'));
-        	}
-        	else if(randomnumber == 2){
+        		}
+        		else if(randomnumber == 2){
         		const dispatcher = connection.play(require("path").join(__dirname, './hehe.mp3'));
-        	}
-        	else if (randomnumber == 3){
+        		}
+        		else if (randomnumber == 3){
         		const dispatcher = connection.play(require("path").join(__dirname, './huh.mp3'));
-        	}
+        		}
+        	}*/
             });
         }).catch(err => console.log(err));
     }   
