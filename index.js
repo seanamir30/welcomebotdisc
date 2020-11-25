@@ -58,14 +58,14 @@ client.on('message', message =>{
             const oldUserChannel = oldMember.voicechannelID;
             randomnumber=Math.floor(Math.random() * 3) + 1;
 
-            if(oldUserChannel === undefined && newUserChannel !== undefined) {
-            	const dispatcher = connection.play(require("path").join(__dirname, './hurr.mp3'));
-            	message.channel.send('hi');
-  			} 
-  			else  if(newUserChannel === undefined){
-  				const dispatcher = connection.play(require("path").join(__dirname, './huh.mp3'));
-  				message.channel.send('bye');
-  			} 
+            if (oldVoice == null) {
+    			console.log("User joined!");
+    		} else if (newVoice == null) {
+      			console.log("User left!");
+    		} else {
+      			console.log("User switched channels!");
+    		}
+  			}
   			/*else {
             	if(randomnumber == 1){
            		const dispatcher = connection.play(require("path").join(__dirname, './hurr.mp3'));
