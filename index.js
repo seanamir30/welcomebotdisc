@@ -55,8 +55,6 @@ client.on('message', message =>{
             });	
         client.on("voiceStateUpdate", (oldVoiceState, newVoiceState, oldMember, newMember) => {
             randomno = Math.floor((Math.random() * 2) + 1);
-        	const newUserChannel = newMember.voice.channelID
-  			const oldUserChannel = oldMember.voice.channelID
             if (randomno === 1){
         	   const dispatcher = connection.play(require("path").join(__dirname, './janehello.mp3'));
             } else if (randomno === 2){
