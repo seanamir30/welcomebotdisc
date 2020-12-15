@@ -56,7 +56,7 @@ client.on('message', message =>{
         client.on("voiceStateUpdate", (oldVoiceState, newVoiceState, oldMember, newMember) => {
             randomno = Math.floor((Math.random() * 2) + 1);
             if (randomno === 1){
-        	   const dispatcher = connection.play(require("path").join(__dirname, './janehello.mp3'));
+        	   const dispatcher = connection.play(require("path").join(__dirname, './jaronawit.mp3'));
             } else if (randomno === 2){
         	   const dispatcher = connection.play(require("path").join(__dirname, './jaronawit.mp3'));
             }
